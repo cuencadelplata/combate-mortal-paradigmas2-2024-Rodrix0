@@ -4,6 +4,7 @@ public class Tanque implements Guerra {
 	int disparo;
 	private boolean vivo;
 	private int disparosRecibidos;
+	int escudo;
 
 	public int getDisparo() {
 		return 1;
@@ -12,21 +13,36 @@ public class Tanque implements Guerra {
 	public void setDisparo(int disparo) {
 		this.disparo = disparo;
 	}
+	@Override
+	public int getEscudo() {
+
+		return escudo;
+	}
 
 	public Tanque() {
 		this.vivo=true;//comienza vivo
 		this.disparosRecibidos=0;
+		this.escudo=1;
+	}
+	public Tanque(int escudo) {
+		this.vivo=true;
+		this.disparosRecibidos=0;
+		this.escudo=escudo;
 	}
 	public void recibirDisparo() {
-		disparosRecibidos++;
+		if(escudo>0) {
+			escudo--;
+		}else {
+			disparosRecibidos++;
+		}
 		if(disparosRecibidos>=2) {
-			this.vivo=false;//muere despues de dos disparos
+				this.vivo=false;
 		}
 		
 	}
 	public boolean estaVivo() {
 		return vivo;
 	}
-	
 
+	
 }

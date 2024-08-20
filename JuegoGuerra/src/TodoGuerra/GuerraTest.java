@@ -96,6 +96,91 @@ class GuerraTest {
 		buque.recibirDisparo();//recibe el disparo
 		assertFalse(buque.estaVivo());//muere
 	}
+	@Test
+	void tanque_dispara_soldado() {
+		Guerra soldado=new Soldado();
+		Guerra tanque=new Tanque();
+		assertTrue(soldado.estaVivo());//soldado vivo
+		((Tanque)tanque).dispararA(soldado);//tanque ataca a soldado
+		assertTrue(soldado.estaVivo());//soldado vive por el escudo
+		((Tanque)tanque).dispararA(soldado);//tanque ataca a soldado
+		assertFalse(soldado.estaVivo());//muere
+		
+	}
+	@Test
+	void tanque_dispara_buque() {
+		Guerra buque=new Buque();
+		Guerra tanque=new Tanque();
+		assertTrue(buque.estaVivo());//buque vivo
+		((Tanque)tanque).dispararA(buque);//tanque ataca a buque
+		assertTrue(buque.estaVivo());//buque vive por el escudo
+		((Tanque)tanque).dispararA(buque);//tanque ataca a buque
+		assertTrue(buque.estaVivo());//queda 2 vidas
+		((Tanque)tanque).dispararA(buque);
+		assertTrue(buque.estaVivo());//queda 1 vida
+		((Tanque)tanque).dispararA(buque);
+		assertFalse(buque.estaVivo());//muere
+
+	}
+	@Test
+	void soldado_dispara_buque() {
+		Guerra buque=new Buque();
+		Guerra soldado=new Soldado();
+		assertTrue(buque.estaVivo());//buque vivo
+		((Soldado)soldado).dispararA(buque);//soldado ataca a buque
+		assertTrue(buque.estaVivo());//buque vive por el escudo
+		((Soldado)soldado).dispararA(buque);//soldado ataca a buque
+		assertTrue(buque.estaVivo());//queda 3 vidas
+		((Soldado)soldado).dispararA(buque);
+		assertTrue(buque.estaVivo());//queda 2 vida
+		((Soldado)soldado).dispararA(buque);
+		assertFalse(buque.estaVivo());//muere
+		
+
+
+
+	}
+	@Test
+	void soldado_dispara_tanque() {
+		Guerra tanque=new Tanque();
+		Guerra soldado=new Soldado();
+		assertTrue(tanque.estaVivo());//tanque vivo
+		((Soldado)soldado).dispararA(tanque);//soldado ataca a tanque
+		assertTrue(tanque.estaVivo());//tanque vive por el escudo
+		((Soldado)soldado).dispararA(tanque);//soldado ataca a tanque
+		assertTrue(tanque.estaVivo());//queda 1 vida
+		((Soldado)soldado).dispararA(tanque);
+		assertFalse(tanque.estaVivo());//muere
+		
+
+	}
+	@Test
+	void buque_dispara_tanque() {
+		Guerra tanque=new Tanque();
+		Guerra buque=new Buque();
+		assertTrue(tanque.estaVivo());//tanque vivo
+		((Buque)buque).dispararA(tanque);//buque ataca a tanque
+		assertTrue(tanque.estaVivo());//tanque vive por el escudo
+		((Buque)buque).dispararA(tanque);//buque ataca a tanque
+		assertTrue(tanque.estaVivo());//queda 1 vida
+		((Buque)buque).dispararA(tanque);
+		assertFalse(tanque.estaVivo());//muere
+		
+
+	}
+	@Test
+	void buque_dispara_soldado() {
+		Guerra soldado=new Soldado();
+		Guerra buque=new Buque();
+		assertTrue(soldado.estaVivo());//soldado vivo
+		((Buque)buque).dispararA(soldado);//buque ataca a soldado
+		assertTrue(soldado.estaVivo());//soldado vive por el escudo
+		((Buque)buque).dispararA(soldado);//buque ataca a soldado
+		assertFalse(soldado.estaVivo());//muere
+		
+	}
+	
+	
 	
 	
 	

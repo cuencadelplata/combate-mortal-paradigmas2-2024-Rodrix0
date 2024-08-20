@@ -4,16 +4,8 @@ public class Buque implements Guerra {
 	private int disparosRecibidos;
 	private boolean vivo;
 	int escudo;
-	public Buque() {
-		this.vivo=true;//comienza vivo
-		this.disparosRecibidos=0;
-		this.escudo=1;
-	}
-	public Buque(int escudo) {
-		this.vivo=true;
-		this.disparosRecibidos=0;
-		this.escudo=escudo;
-	}
+	int disparo;
+
 	public int getDisparo() {
 		return 1;
 	}
@@ -27,6 +19,16 @@ public class Buque implements Guerra {
 		return escudo;
 	}
 
+	public Buque() {
+		this.vivo=true;//comienza vivo
+		this.disparosRecibidos=0;
+		this.escudo=1;
+	}
+	public Buque(int escudo) {
+		this.vivo=true;
+		this.disparosRecibidos=0;
+		this.escudo=escudo;
+	}
 	public void recibirDisparo() {
 		if(escudo>0) {
 			escudo--;
@@ -38,8 +40,17 @@ public class Buque implements Guerra {
 		}
 		
 	}
+	public boolean estaVivo() {
+		return vivo;
+	}
+
 	@Override
-    public boolean estaVivo() {
-        return vivo;
-    }
+	public int escudo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public void dispararA(Guerra objetivo) {
+		objetivo.recibirDisparo();
+	}
+
 }

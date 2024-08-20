@@ -44,5 +44,14 @@ public class Tanque implements Guerra {
 		return vivo;
 	}
 
+	@Override
+	public int escudo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public void dispararA(Guerra objetivo) {
+		objetivo.recibirDisparo();
+	}
+
 	
 }

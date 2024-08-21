@@ -31,11 +31,7 @@ public class ChuckNorris implements Guerra{
 
 		return 1;
 	}
-	@Override
-	public int escudo() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 	@Override
 	public int getEscudo() {
 		return escudo;

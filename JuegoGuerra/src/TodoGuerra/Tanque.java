@@ -13,7 +13,6 @@ public class Tanque implements Guerra {
 	public void setDisparo(int disparo) {
 		this.disparo = disparo;
 	}
-	@Override
 	public int getEscudo() {
 
 		return escudo;

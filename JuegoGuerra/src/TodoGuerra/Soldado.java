@@ -19,12 +19,12 @@ public class Soldado implements Guerra {
 	public int getEscudo() {
 		return escudo;
 	}
-	public Soldado() {
+	public Soldado() {//soldado con escudo
 		this.vivo=true;//comienza vivo
 		this.disparosRecibidos=0;
 		this.escudo=1;
 	}
-	public Soldado(int escudo) {
+	public Soldado(int escudo) {//Soldado sin escudo
 		this.vivo=true;
 		this.disparosRecibidos=0;
 		this.escudo=escudo;
@@ -43,8 +43,7 @@ public class Soldado implements Guerra {
 	public boolean estaVivo() {
 		return vivo;
 	}
-
-	@Override
+	
 	public int escudo() {
 		// TODO Auto-generated method stub
 		return 0;

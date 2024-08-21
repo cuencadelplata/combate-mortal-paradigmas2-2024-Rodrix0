@@ -179,6 +179,25 @@ class GuerraTest {
 		assertFalse(soldado.estaVivo());//muere
 		
 	}
+	@Test
+	void tanque_dispara_ChuckNorris() {
+		Guerra chuck=new ChuckNorris(0);
+		Guerra tanque=new Tanque();
+		assertTrue(chuck.estaVivo());//soldado vivo
+		((Tanque)tanque).dispararA(chuck);//tanque ataca a soldado
+		assertTrue(chuck.estaVivo());//soldado vive por el escudo
+		((Tanque)tanque).dispararA(chuck);//tanque ataca a soldado
+		assertTrue(chuck.estaVivo());
+		((Tanque)tanque).dispararA(chuck);//tanque ataca a soldado
+		((Tanque)tanque).dispararA(chuck);//tanque ataca a soldado
+		((Tanque)tanque).dispararA(chuck);//tanque ataca a soldado
+		((Tanque)tanque).dispararA(chuck);//tanque ataca a soldado
+		assertTrue(chuck.estaVivo());
+
+
+
+
+	}
 	
 	
 	

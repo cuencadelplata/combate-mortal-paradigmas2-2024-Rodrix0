@@ -13,18 +13,17 @@ public class Buque implements Guerra {
 	public void setDisparo(int disparo) {
 		this.disparo = disparo;
 	}
-	@Override
 	public int getEscudo() {
 
 		return escudo;
 	}
 
-	public Buque() {
+	public Buque() {//buque con escudo
 		this.vivo=true;//comienza vivo
 		this.disparosRecibidos=0;
 		this.escudo=1;
 	}
-	public Buque(int escudo) {
+	public Buque(int escudo) {//buque sin escudo
 		this.vivo=true;
 		this.disparosRecibidos=0;
 		this.escudo=escudo;
@@ -44,7 +43,6 @@ public class Buque implements Guerra {
 		return vivo;
 	}
 
-	@Override
 	public int escudo() {
 		// TODO Auto-generated method stub
 		return 0;

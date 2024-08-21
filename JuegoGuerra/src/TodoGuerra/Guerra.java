@@ -6,4 +6,5 @@ public interface Guerra {
 	boolean estaVivo();
 	int escudo();
 	int getEscudo();
+	
 }

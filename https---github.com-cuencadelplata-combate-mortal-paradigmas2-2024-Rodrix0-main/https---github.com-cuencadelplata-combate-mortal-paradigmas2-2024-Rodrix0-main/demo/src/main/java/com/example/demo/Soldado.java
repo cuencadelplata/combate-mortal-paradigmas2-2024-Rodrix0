@@ -3,50 +3,38 @@ package com.example.demo;
 public class Soldado implements Guerra {
 	int disparo;
 	private boolean vivo;
-	int escudo;
-	private int disparosRecibidos;
+	private Escudo escudo;
+	private int vida;
 
+	public Soldado(){
+		this.vivo=true;
+		this.vida=1;
+		this.escudo=null;
+	}
 	public int getDisparo() {
 		return 1;
 	}
-
-	public void setDisparo(int disparo) {
-		this.disparo = disparo;
-	}
-	public void setEscudo(int escudo) {
-		this.escudo = escudo;
-	}
-	public int getEscudo() {
-		return escudo;
-	}
-	public Soldado() {//soldado con escudo
-		this.vivo=true;//comienza vivo
-		this.disparosRecibidos=0;
-		this.escudo=1;
-	}
-	public Soldado(int escudo) {//Soldado sin escudo
-		this.vivo=true;
-		this.disparosRecibidos=0;
-		this.escudo=escudo;
-	}
 	public void recibirDisparo() {
-		if(escudo>0) {
-			escudo--;
-		}else {
-			disparosRecibidos++;
-			if(disparosRecibidos>=1) {
-				this.vivo=false;//
-
+		int damage=1;
+		if(escudo!=null){
+			damage=escudo.reducirDamage(damage);
 		}
+		vida-=damage;
+		if(vida<=0){
+			this.vivo=false;
 		}
 	}
 	public boolean estaVivo() {
 		return vivo;
 	}
 	
-	public int escudo() {
+	public Escudo getEscudo() {
+
 	
-		return 0;
+		return escudo;
+	}
+	public void setEscudo(Escudo escudo){
+		this.escudo=escudo;
 	}
 	public void dispararA(Guerra objetivo) {
 		objetivo.recibirDisparo();

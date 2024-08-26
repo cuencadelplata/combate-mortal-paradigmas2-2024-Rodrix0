@@ -1,56 +1,50 @@
 package com.example.demo;
 
 public class Tanque implements Guerra {
-	int disparo;
-	private boolean vivo;
-	private int disparosRecibidos;
-	int escudo;
+    private boolean vivo;
+    private Escudo escudo;
+    private int vida;
 
-	public int getDisparo() {
-		return 1;
-	}
+    public Tanque() {
+        this.vivo = true;
+        this.vida = 2;
+        this.escudo = null;
+    }
 
-	public void setDisparo(int disparo) {
-		this.disparo = disparo;
-	}
-	public int getEscudo() {
+    @Override
+    public int getDisparo() {
+        return 1;
+    }
 
-		return escudo;
-	}
+    @Override
+    public void recibirDisparo() {
+        int damage = 1;
+        if (escudo != null) {
+            damage = escudo.reducirDamage(damage);
+        }
+        vida -= damage;
+        if (vida <= 0) {
+            this.vivo = false;
+        }
+    }
 
-	public Tanque() {
-		this.vivo=true;//comienza vivo
-		this.disparosRecibidos=0;
-		this.escudo=1;
-	}
-	public Tanque(int escudo) {
-		this.vivo=true;
-		this.disparosRecibidos=0;
-		this.escudo=escudo;
-	}
-	public void recibirDisparo() {
-		if(escudo>0) {
-			escudo--;
-		}else {
-			disparosRecibidos++;
-		}
-		if(disparosRecibidos>=2) {
-				this.vivo=false;
-		}
-		
-	}
-	public boolean estaVivo() {
-		return vivo;
-	}
+    @Override
+    public boolean estaVivo() {
+        return vivo;
+    }
 
-	@Override
-	public int escudo() {
+    @Override
+    public Escudo getEscudo() {
+        return escudo;
+    }
 
-		return 0;
-	}
-	public void dispararA(Guerra objetivo) {
-		objetivo.recibirDisparo();
-	}
+    @Override
+    public void setEscudo(Escudo escudo) {
+        this.escudo = escudo;
+    }
 
-	
+    @Override
+    public void dispararA(Guerra objetivo) {
+        objetivo.recibirDisparo();
+    }
 }

@@ -5,7 +5,7 @@ public class Tanque implements Guerra {
     private Escudo escudo;
     private int vida;
 
-    public Tanque() {
+    public Tanque() {//vive,resiste 2 disp,no tiene escudo
         this.vivo = true;
         this.vida = 2;
         this.escudo = null;
@@ -19,12 +19,12 @@ public class Tanque implements Guerra {
     @Override
     public void recibirDisparo() {
         int damage = 1;
-        if (escudo != null) {
+        if (escudo != null) {//si tiene escudo reduce el damage
             damage = escudo.reducirDamage(damage);
         }
         vida -= damage;
         if (vida <= 0) {
-            this.vivo = false;
+            this.vivo = false;//muere
         }
     }
 

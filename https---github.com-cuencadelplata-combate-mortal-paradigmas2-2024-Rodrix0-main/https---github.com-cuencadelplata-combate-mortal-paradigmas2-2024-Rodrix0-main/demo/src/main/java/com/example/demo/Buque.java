@@ -5,31 +5,31 @@ public class Buque implements Guerra {
     private Escudo escudo;
     private int vida;
 
-    public Buque() {
+    public Buque() {//comieza vivo,resiste 3 disp,y no tiene escudo
         this.vivo = true;
         this.vida = 3;
         this.escudo = null;
     }
 
     @Override
-    public int getDisparo() {
+    public int getDisparo() {//buque dispara
         return 1;
     }
 
     @Override
     public void recibirDisparo() {
         int damage = 1;
-        if (escudo != null) {
-            damage = escudo.reducirDamage(damage);
+        if (escudo != null) {//si tiene escudo
+            damage = escudo.reducirDamage(damage);//se reduce el damage
         }
-        vida -= damage;
-        if (vida <= 0) {
-            this.vivo = false;
+        vida -= damage;//descuento lo que se reduce
+        if (vida <= 0) {//hasta que llegue a 0
+            this.vivo = false;//muere
         }
     }
 
     @Override
-    public boolean estaVivo() {
+    public boolean estaVivo() {//1 vivo, 0 muere
         return vivo;
     }
 
@@ -44,7 +44,7 @@ public class Buque implements Guerra {
     }
 
     @Override
-    public void dispararA(Guerra objetivo) {
+    public void dispararA(Guerra objetivo) {//dispara a alguien
         objetivo.recibirDisparo();
     }
 }

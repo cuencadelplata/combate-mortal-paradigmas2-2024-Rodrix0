@@ -9,19 +9,19 @@ class GuerraTest {
     @Test
     void soldado_disparo() {
         Guerra soldado = new Soldado();
-        assertEquals(1, soldado.getDisparo()); // soldado disparo
+        assertEquals(1, soldado.getDisparo()); // soldado dispara
     }
 
     @Test
     void tanque_dispara() {
         Guerra tanque = new Tanque();
-        assertEquals(1, tanque.getDisparo()); // tanque disparo
+        assertEquals(1, tanque.getDisparo()); // tanque dispara
     }
 
     @Test
     void buque_disparo() {
         Guerra buque = new Buque();
-        assertEquals(1, buque.getDisparo()); // buque disparo
+        assertEquals(1, buque.getDisparo()); // buque dispara
     }
 
     @Test
@@ -180,11 +180,14 @@ class GuerraTest {
     @Test
     void escudo_chuckNorris() {
         ChuckNorris chuckNorris = new ChuckNorris();
-        chuckNorris.setEscudo(new Escudo(0.5)); // escudo que reduce el damage 50%
         assertTrue(chuckNorris.estaVivo()); // está vivo
         chuckNorris.recibirDisparo(); // recibe la bala
         assertTrue(chuckNorris.estaVivo()); // vive por el escudo
         chuckNorris.recibirDisparo(); // recibe otra bala
-        assertTrue(chuckNorris.estaVivo()); // muere
+        chuckNorris.recibirDisparo(); // recibe la bala
+        chuckNorris.recibirDisparo(); // recibe la bala
+        chuckNorris.recibirDisparo(); // recibe la bala
+        chuckNorris.recibirDisparo(); // recibe la bala
+        assertTrue(chuckNorris.estaVivo()); // vive
     }
 }

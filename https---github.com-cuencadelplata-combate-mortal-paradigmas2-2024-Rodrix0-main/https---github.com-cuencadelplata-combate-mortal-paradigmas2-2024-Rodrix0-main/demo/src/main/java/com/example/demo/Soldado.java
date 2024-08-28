@@ -6,22 +6,22 @@ public class Soldado implements Guerra {
 	private Escudo escudo;
 	private int vida;
 
-	public Soldado(){
+	public Soldado(){//vive,resiste un disp y no tiene escudo
 		this.vivo=true;
 		this.vida=1;
 		this.escudo=null;
 	}
-	public int getDisparo() {
+	public int getDisparo() {//dispara
 		return 1;
 	}
 	public void recibirDisparo() {
 		int damage=1;
-		if(escudo!=null){
+		if(escudo!=null){//si tene escudo reduce el damage
 			damage=escudo.reducirDamage(damage);
 		}
 		vida-=damage;
 		if(vida<=0){
-			this.vivo=false;
+			this.vivo=false;//muere
 		}
 	}
 	public boolean estaVivo() {

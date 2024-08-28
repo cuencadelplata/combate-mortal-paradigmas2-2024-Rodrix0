@@ -6,5 +6,5 @@ public interface Guerra {
     boolean estaVivo();
     Escudo getEscudo();
     void setEscudo(Escudo escudo);
-    void dispararA(Guerra objetivo); // Agregado en la interfaz
+    void dispararA(Guerra objetivo); 
 }
